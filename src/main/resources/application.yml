@@ -9,6 +9,12 @@ spring:
          filters:
            - AuthenticationFilter
 
+       - id: payment-app
+         uri: lb://PAYMENT-SERVICE
+         predicates:
+           - Path=/payment/**
+         filters:
+           - AuthenticationFilter
 
        - id: restaurant-service
          uri: lb://RESTAURANT-SERVICE
