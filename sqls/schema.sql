@@ -1,7 +1,8 @@
-CREATE TABLE rate_limit (
-    id INT AUTO_INCREMENT PRIMARY KEY,
-    route_id VARCHAR(255) NOT NULL,
-    limit_for_minutes INT NOT NULL,
-    request_count INT NOT NULL,
-    last_request_timestamp TIMESTAMP NOT NULL
+CREATE TABLE `ratelimit` (
+  `id` bigint NOT NULL AUTO_INCREMENT,
+  `ip_address` varchar(255) DEFAULT NULL,
+  `request_count` int DEFAULT NULL,
+  `request_date` datetime DEFAULT NULL,
+  `user_id` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`id`)
 );
