@@ -7,6 +7,7 @@ spring:
          predicates:
            - Path=/swiggy/**
          filters:
+           - RateLimitFilter
            - AuthenticationFilter
 
        - id: payment-app
@@ -14,6 +15,7 @@ spring:
          predicates:
            - Path=/payment/**
          filters:
+           - RateLimitFilter
            - AuthenticationFilter
 
        - id: restaurant-service
@@ -21,12 +23,15 @@ spring:
          predicates:
            - Path=/restaurant/**
          filters:
+           - RateLimitFilter
            - AuthenticationFilter
 
        - id: identity-service
          uri: lb://IDENTITY-SERVICE
          predicates:
            - Path=/auth/**
+         filters:
+           - RateLimitFilter
 
  application:
    name: DELIVERY-GATEWAY
