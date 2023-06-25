@@ -10,15 +10,15 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 public class GatewayConfiguration {
 
-    @Autowired
-    private RateLimitFilter rateLimitFilter;
-
-    @Bean
-    public RouteLocator routeLocator(RouteLocatorBuilder builder) {
-        return builder.routes()
-                .route("identity-service", r -> r.path("/auth/token")
-                        .filters(f -> f.filter(rateLimitFilter))
-                        .uri("http://localhost:8080"))
-                .build();
-    }
+//    @Autowired
+//    private RateLimitFilter rateLimitFilter;
+//
+//    @Bean
+//    public RouteLocator routeLocator(RouteLocatorBuilder builder) {
+//        return builder.routes()
+//                .route("identity-service", r -> r.path("/auth/token")
+//                        .filters(f -> f.filter(rateLimitFilter))
+//                        .uri("http://localhost:8080"))
+//                .build();
+//    }
 }
